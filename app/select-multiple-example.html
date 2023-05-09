@@ -5,6 +5,19 @@
 </mat-form-field>
 
 
+<div *ngFor="let policy of selectedPolicies">
+<div fxFlex.gt-xs="0 0 40%" fxFlex.lt-sm="100%">
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Successor</mat-label>
+  <mat-select class="selectedPolicySuccessor" (selectionChange)="addSuccessorToPolicy($event, policy)" [(value)]="policy.assignedSuccessorAgentCodes" multiple [(ngModel)]="selectedSuccessor">
+   <mat-option *ngFor="let successor of selectedAgreement.successorAgentInfo" [value]="successor.agentCode">
+      {{successor.firstName}} {{successor.lastName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div>
+
+
 <!-- Copyright 2018 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license -->
