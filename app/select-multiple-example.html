@@ -9,7 +9,7 @@
 <div fxFlex.gt-xs="0 0 40%" fxFlex.lt-sm="100%">
 <mat-form-field appearance="fill" class="full-width">
   <mat-label>Successor</mat-label>
-  <mat-select class="selectedPolicySuccessor" (selectionChange)="addSuccessorToPolicy($event, policy)" [(value)]="policy.assignedSuccessorAgentCodes" multiple [(ngModel)]="selectedSuccessor">
+  <mat-select class="selectedPolicySuccessor" (selectionChange)="addSuccessorToPolicy($event, policy)" [(value)]="policy.assignedSuccessorAgentCodes" multiple [(ngModel)]="policy.assignedSuccessorAgentCodes[0]">
    <mat-option *ngFor="let successor of selectedAgreement.successorAgentInfo" [value]="successor.agentCode">
       {{successor.firstName}} {{successor.lastName}}</mat-option>
   </mat-select>

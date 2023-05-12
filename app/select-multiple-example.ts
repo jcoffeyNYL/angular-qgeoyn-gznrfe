@@ -17,9 +17,14 @@ export class SelectMultipleExample {
   selected: string[] = this.toppingList.filter((item, i) => i % 2 === 0);
 
   successors = new FormControl();
-  selectedPolicies: Policy[] = [new Policy("AN1234567")];
+  selectedPolicies: Policy[] = [];
+  //p = new Policy("AN1234567");
+  //selectedPolicies.push(p);
+  //selectedPolicies: Policy[] = [new Policy("AN1234567")];
+
+
   selectedAgreement = new Agreement;
-  successorList: string[] = ['111111', '222222', '333333', '444444'];
+  successorList: string[] = ['111111'];
   selectedSuccessor: string[] = this.successorList.filter((item, i) => i % 2 === 0);
   
   ngOnInit(): void {
@@ -33,12 +38,28 @@ export class SelectMultipleExample {
    this.selectedAgreement.successorAgentInfo[2] = successorJane;
    this.selectedAgreement.successorAgentInfo[3] = successorJanet;
 
-   //let policy1 = new Policy("AN1234567");
-   //this.selectedPolicies[0] =  policy1;
+   let policy1 = new Policy("AN1234567");
+   let policy2 = new Policy("AN1234568");
+   let policy3 = new Policy("AN1234569");
+   let currentRecord = "222222:Doe";
+   let splitSuccesor = currentRecord.trim().split(":", 2);
+   policy1.assignedSuccessorAgentCodes = [];
+   policy2.assignedSuccessorAgentCodes = [];
+   policy3.assignedSuccessorAgentCodes = [];
+   policy3.contractIssueCode = "PNR";
+   policy1.assignedSuccessorAgentCodes.push(splitSuccesor);
+   policy2.assignedSuccessorAgentCodes.push(splitSuccesor);
+   policy3.assignedSuccessorAgentCodes.push(splitSuccesor);
+
+   this.selectedPolicies.push(policy1);
+   this.selectedPolicies.push(policy2);
+   this.selectedPolicies.push(policy3);
 
  }
 
  addSuccessorToPolicy(e: any, policy: Policy): void {
+   console.log(policy);
+   console.log(this.selectedSuccessor);
  }
 }
 
